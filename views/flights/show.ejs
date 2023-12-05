@@ -1,0 +1,42 @@
+<%- include('../partials/header') %>
+
+<div><b>Airline:</b></div>
+<div><%= flight.airline %></div>
+<div> <b>Departing From</b></div>
+<div><%= flight.airport %></div>
+<div> <b>Departing At</b></div>
+<div><%= flight.departs %></div>
+<div> <b>Flight</b></div>
+<div><%= flight.flightNo %></div>
+
+<div>Tickets</div>
+<% tickets.forEach(function(ticket) { %>
+<div>Ticket</div>
+<% }) %>
+<!-- <! add to destinations form- form> -->
+<br><br><br><h2>Add A Destination</h2>
+
+<% if (!flight?.destination?[0].arrival) { %>
+    <form id="add-to-dest" action="/flights/<%= flight._id %>/destinations" method="post">
+        <select name="airport">
+        <option value="AUS">AUSTIN</option>
+        <option value="LAX">LOS ANGELES</option>
+        <option value="PHL">PHILLY</option>
+        <option value="JFK">NEW YORK</option>
+        <option value="SAN">SAN JOSE</option>
+    </select>
+    <label>Arrival</label>
+    <input type="datetime-local" name="arrival">
+
+    <input type="submit" value="Add">
+
+    <input type="datetime-local" 
+    id="arrival-time"
+    name="arrival"
+    min="2023-11-30t20.00"
+    max="2024-11-30t20.00">
+    <button type="submit" action="/flights">Submit</button>
+</form>
+
+<% } %>
+<%- include('../partials/footer') %>
