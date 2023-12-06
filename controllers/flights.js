@@ -14,8 +14,8 @@ async function index(req, res){
 }
 
 async function show(req, res) {
-      const flights = await Flight.findById(req.params.id);
-      res.render('flights/show', { title: 'Flight Detail', flights });
+      const flight = await Flight.findById(req.params.id);
+      res.render('flights/show', { title: 'Flight Detail', flight });
     }
 
 function newFlight(req, res){
@@ -33,3 +33,5 @@ async function create(req, res) {
     res.render('flights/new', { errorMsg: err.message });
   }
 }
+
+

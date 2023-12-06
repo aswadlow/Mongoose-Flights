@@ -27,7 +27,7 @@ const flightSchema = new Schema({
    flightNo: {
     type: Number,
     required: true,
-    min: 10,
+    min: 1,
     max: 9999
    },
    departs: {
@@ -41,7 +41,7 @@ const flightSchema = new Schema({
          return finalDate;
         }
    },
-   destination: {destinationSchema}
+   destinations: [destinationSchema]
 })
 
 module.exports = mongoose.model('Flight', flightSchema);
