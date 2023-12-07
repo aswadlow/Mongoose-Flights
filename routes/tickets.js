@@ -1,13 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
-// You'll be creating this controller module next
 const ticketsCtrl = require('../controllers/tickets');
   
 // GET /flights/:id/tickets/new
-router.get('/flights/:id/ticket/new', flightsCtrl.new);
+router.get('/flights/:id/tickets/new', ticketsCtrl.new);
 
-// POST /flights/:id/tickets
-router.post('/flights/:id/ticket', ticketsCtrl.create);
+//POST /flights/:id/tickets
+router.post('/flights/:id/tickets', ticketsCtrl.create);
+
+// router.get('/flights/:id/', ticketsCtrl.show)
   
 module.exports = router;
